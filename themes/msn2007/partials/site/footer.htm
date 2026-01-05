@@ -1,0 +1,16 @@
+<footer>
+    <p>&copy; 2007 Microsoft Corporation. All rights reserved.</p>
+    <p><a href="#">Privacy</a> | <a href="#">Terms of Use</a></p>
+</footer>
+
+{% scripts %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% framework extras %}
+<script>
+$(document).ready(function() {
+    // Simple Accordion
+    $('.accordion-header').click(function() {
+        $(this).next('.accordion-content').slideToggle();
+    });
+});
+</script>

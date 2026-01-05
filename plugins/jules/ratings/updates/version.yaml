@@ -1,0 +1,6 @@
+1.0.1:
+    - First version of Ratings
+    - create_votes_table.php
+1.0.2:
+    - Seed sitemap
+    - seed_sitemap.php

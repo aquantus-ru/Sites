@@ -1,0 +1,276 @@
+/* MSN 2007 Style */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #EBEBEB;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* Header */
+header {
+    background: linear-gradient(to bottom, #fff 0%, #F58220 100%);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #D46A00;
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333; /* MSN Logo Color often varied, but text was dark */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo span {
+    color: #000;
+}
+
+.logo .butterfly {
+    /* Abstract butterfly */
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    margin-right: 10px;
+    display: inline-block;
+    position: relative;
+}
+.logo .butterfly::before, .logo .butterfly::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+}
+.logo .butterfly::before {
+    width: 15px;
+    height: 25px;
+    background: #0072C6; /* Blue wing */
+    left: 0;
+    top: 0;
+    transform: rotate(20deg);
+}
+.logo .butterfly::after {
+    width: 15px;
+    height: 25px;
+    background: #73C72A; /* Green wing */
+    right: 0;
+    top: 5px;
+    transform: rotate(-20deg);
+}
+
+.search-bar {
+    display: flex;
+}
+
+.search-bar input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-radius: 3px 0 0 3px;
+}
+
+.search-bar button {
+    padding: 5px 15px;
+    background-color: #0072C6;
+    color: white;
+    border: 1px solid #005A9E;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+}
+
+/* Navigation */
+nav {
+    background-color: #555; /* Dark gray nav bar */
+    color: white;
+    padding: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap; /* Mobile friendly wrapping */
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-right: 1px solid #666;
+}
+
+nav ul li a:hover {
+    background-color: #666;
+}
+
+/* Main Content */
+.main-content {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.content-area {
+    flex: 3;
+    min-width: 300px;
+}
+
+.sidebar {
+    flex: 1;
+    min-width: 200px;
+    background-color: #F8F8F8;
+    padding: 15px;
+    border: 1px solid #DDD;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: #000;
+    margin-top: 0;
+}
+
+h1 { font-size: 2em; border-bottom: 1px solid #ccc; padding-bottom: 10px; margin-bottom: 20px; }
+h2 { font-size: 1.5em; color: #E66C00; /* Orange Headers */ }
+
+p { margin-bottom: 15px; }
+
+/* Lists */
+ul { list-style-type: disc; margin-left: 20px; }
+ol { list-style-type: decimal; margin-left: 20px; }
+
+/* Forms */
+input[type="text"], input[type="email"], textarea, select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+    box-sizing: border-box; /* Fix width issues */
+    margin-bottom: 10px;
+}
+
+.form-checkbox, .form-radio {
+    margin-right: 5px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 3px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background-color: #F58220;
+    color: white;
+    border: 1px solid #D46A00;
+}
+
+.btn-secondary {
+    background-color: #DDD;
+    color: #333;
+    border: 1px solid #CCC;
+}
+
+/* Accordion */
+.accordion {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #ccc;
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    background-color: #eee;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.accordion-header:hover {
+    background-color: #e0e0e0;
+}
+
+.accordion-content {
+    padding: 15px;
+    background-color: #fff;
+    display: none; /* Hidden by default for JS to toggle, or use :target or JS */
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #999;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: #ccc;
+    text-decoration: none;
+}

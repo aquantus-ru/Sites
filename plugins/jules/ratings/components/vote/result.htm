@@ -1,0 +1,10 @@
+<p>Average Rating: {{ avgRating|number_format(1) }} / 5</p>
+<form data-request="{{ __SELF__ }}::onRate" data-request-update="'{{ __SELF__ }}::result': '#rating-result'">
+    <div class="star-rating">
+        {% for i in 5..1 %}
+            <input type="radio" id="star{{ i }}-{{ __SELF__.id }}" name="rating" value="{{ i }}" {% if userRating == i %}checked{% endif %}>
+            <label for="star{{ i }}-{{ __SELF__.id }}" title="{{ i }} stars"></label>
+        {% endfor %}
+    </div>
+    <button type="submit" class="btn btn-primary btn-sm mt-2">Vote</button>
+</form>

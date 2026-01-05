@@ -1,0 +1,33 @@
+<div class="rating-component" id="rating-component-{{ __SELF__.id }}">
+    <h3>Rate this:</h3>
+    <div id="rating-result">
+        {% partial __SELF__ ~ '::result' %}
+    </div>
+</div>
+
+<style>
+    .star-rating {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+    }
+    .star-rating input {
+        display: none;
+    }
+    .star-rating label {
+        cursor: pointer;
+        width: 30px;
+        font-size: 30px;
+        color: #ccc;
+    }
+    .star-rating label:before {
+        content: '\2605';
+    }
+    .star-rating input:checked ~ label,
+    .star-rating input:checked + label:hover,
+    .star-rating input:checked ~ label:hover,
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+        color: #F58220;
+    }
+</style>

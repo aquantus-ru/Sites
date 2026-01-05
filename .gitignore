@@ -1,0 +1,8 @@
+vendor/
+storage/
+modules/
+themes/demo/
+tests/
+plugins/winter/
+node_modules/
+.env

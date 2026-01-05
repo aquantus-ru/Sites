@@ -1,0 +1,40 @@
+description = "Default layout"
+default = true
+==
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ this.page.title }} - MSN 2007</title>
+    <link href="{{ 'assets/css/msn.css'|theme }}" rel="stylesheet">
+    {% styles %}
+</head>
+<body>
+    <div class="container">
+        {% partial "site/header" %}
+
+        <div class="main-content">
+            <div class="content-area">
+                {% page %}
+            </div>
+            <div class="sidebar">
+                <h3>Highlights</h3>
+                <ul>
+                    <li><a href="#">News Item 1</a></li>
+                    <li><a href="#">Sports Update</a></li>
+                    <li><a href="#">Entertainment</a></li>
+                </ul>
+                <div class="mt-4">
+                    <h3>Ad</h3>
+                    <div style="background:#ddd; height: 250px; display:flex; align-items:center; justify-content:center;">
+                        [Ad Space]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% partial "site/footer" %}
+    </div>
+</body>
+</html>
