@@ -1,112 +1,191 @@
 title = "Home"
 url = "/"
 layout = "default"
+
+[vote]
 ==
-<!-- BB Code -->
+<?php
+function onStart() {
+    $this['show_ratings'] = 1;
+    $this['show_comments'] = 1;
+}
+?>
+==
 <div class="box">
-    <button class="copy-btn" onclick="copyHTML(this)">Copy HTML</button>
+    <button class="btn btn-secondary" style="float:right; padding: 2px 5px; font-size:10px;">COPY</button>
     <h3>BB Code</h3>
-    <div class="box-content">
-        Do you believe in a higher power?
-        <ul style="list-style: none; padding-left: 0; margin: 10px 0;">
-            <li><label><input type="checkbox"> Yes</label></li>
-            <li><label><input type="checkbox"> No</label></li>
-        </ul>
-        <pre>{{ "now"|date("l, F jS, Y, g:i A") }}</pre>
-    </div>
+    <p>Do you believe in a higher power?</p>
+    <ul style="list-style: none; padding-left: 0; margin: 10px 0;">
+        <li><label><input type="checkbox"> Yes</label></li>
+        <li><label><input type="checkbox"> No</label></li>
+    </ul>
+    <pre>{{ "now"|date("l, F jS, Y, g:i A") }}</pre>
 </div>
 
-<hr>
-
-<!-- Hit Counter -->
 <div class="box">
-    <button class="copy-btn" onclick="copyHTML(this)">Copy HTML</button>
-    <h3>Hit Counter</h3>
-    <div class="box-content">
-        This page has been viewed: <strong class="bold">1,024</strong>
-    </div>
+    <h3>Page Statistics</h3>
+    <div>This page has been viewed: <strong style="color:#ff9900;">1,024</strong> times.</div>
 </div>
 
-<hr>
-
-<!-- Interactive Elements -->
 <div class="box">
-    <button class="copy-btn" onclick="copyHTML(this)">Copy HTML</button>
     <h3>Interactive Elements</h3>
-    <div class="box-content">
-        <h4 style="margin: 0 0 5px 0; font-size:11px;">Accordions</h4>
-        <details>
-            <summary style="font-size:11px;">System Requirements</summary>
-            <div style="padding:10px; font-size:11px; color:#666;">
-                Windows XP or Vista, IE 6.0+, 512MB RAM.
-            </div>
-        </details>
 
-        <h4 style="margin: 15px 0 5px 0; font-size:11px;">Status Indicators</h4>
-        <label style="font-size:10px; color:#888;">Download Progress:</label>
-        <progress value="70" max="100"></progress>
-        <meter min="0" max="100" low="30" high="80" optimum="20" value="85"></meter>
-
-        <h4 style="margin: 15px 0 5px 0; font-size:11px;">Modal Window</h4>
-        <button onclick="document.getElementById('demo-dialog').showModal()" class="btn-primary" style="padding: 4px 10px;">Open Launch Dialog</button>
-
-        <dialog id="demo-dialog">
-            <div class="dialog-header">
-                <span>System Alert</span>
-                <span onclick="document.getElementById('demo-dialog').close()" style="cursor:pointer;">X</span>
-            </div>
-            <div class="dialog-body">
-                <p>This is a native HTML &lt;dialog&gt; element.</p>
-                <form method="dialog" style="display:flex; gap:5px;">
-                    <button class="btn-primary" style="flex:1;">OK</button>
-                    <button style="flex:1;">Cancel</button>
-                </form>
-            </div>
-        </dialog>
+    <h4>Status Indicators</h4>
+    <div style="margin-bottom: 15px;">
+        <label style="font-size:11px; font-weight:bold;">Download Progress:</label>
+        <progress value="70" max="100">70%</progress>
     </div>
+    <div>
+        <label style="font-size:11px; font-weight:bold;">Disk Usage:</label>
+        <meter min="0" max="100" low="30" high="80" optimum="20" value="85">85%</meter>
+    </div>
+
+    <h4>Accordions</h4>
+    <details>
+        <summary>System Requirements</summary>
+        <div class="details-content">Windows XP or Vista, Internet Explorer 6.0+, 512MB RAM.</div>
+    </details>
+    <details>
+        <summary>Installation Instructions</summary>
+        <div class="details-content">1. Download. 2. Run as Admin. 3. Restart.</div>
+    </details>
+
+    <h4>Modal</h4>
+    <button onclick="document.getElementById('demo-dialog').showModal()" class="btn">Open Dialog</button>
+    <dialog id="demo-dialog" style="border: 2px solid #ff9900; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+        <h4 style="margin-top:0;">System Alert</h4>
+        <p>This is a native HTML dialog element styled to match.</p>
+        <form method="dialog">
+            <button class="btn">OK</button>
+            <button class="btn btn-secondary">Cancel</button>
+        </form>
+    </dialog>
 </div>
 
-<hr>
-
-<!-- Structural Semantics -->
 <div class="box">
-    <button class="copy-btn" onclick="copyHTML(this)">Copy HTML</button>
     <h3>Structural Semantics</h3>
-    <div class="box-content">
-        <div class="structure-demo">
-            <span class="structure-label">&lt;article&gt;</span>
-            <article>
-                <header class="structure-demo" style="background: #e6eff9;">
-                    <span class="structure-label">&lt;header&gt;</span>
-                    <strong>My Blog Post Title</strong>
-                </header>
-                <div style="display: flex; gap: 5px; margin-top: 5px;">
-                    <main class="structure-demo" style="flex: 2;">
-                        <span class="structure-label">&lt;main&gt;</span>
-                        <p>Main content area logic.</p>
-                    </main>
-                    <aside class="structure-demo" style="flex: 1;">
-                        <span class="structure-label">&lt;aside&gt;</span>
-                        <nav><a href="#">Link</a></nav>
-                    </aside>
-                </div>
-                <footer class="structure-demo" style="background: #eee; margin-top: 5px;">
-                    <span class="structure-label">&lt;footer&gt;</span>
-                    <small>&copy; 2026</small>
-                </footer>
-            </article>
+    <p style="font-style: italic; color:#666;">Structure visualization:</p>
+    <div style="border: 1px dashed #999; padding: 10px; background: #f9f9f9;">
+        <span style="font-size: 10px; color: #999;">&lt;ARTICLE&gt;</span>
+        <div style="background: #e5e5e5; padding: 5px; margin: 5px 0;">
+            <span style="font-size: 10px; color: #666;">&lt;HEADER&gt;</span>
+            <strong>My Blog Post Title</strong>
+        </div>
+        <div style="display:flex; gap:10px;">
+            <div style="flex:2; border:1px solid #ccc; padding:5px;">
+                <span style="font-size: 10px; color: #999;">&lt;MAIN&gt;</span>
+                <p>Content area...</p>
+            </div>
+            <div style="flex:1; border:1px solid #ccc; padding:5px;">
+                <span style="font-size: 10px; color: #999;">&lt;ASIDE&gt;</span>
+                Links...
+            </div>
+        </div>
+        <div style="background: #e5e5e5; padding: 5px; margin: 5px 0;">
+            <span style="font-size: 10px; color: #666;">&lt;FOOTER&gt;</span>
+            &copy; 2025
         </div>
     </div>
 </div>
 
-<hr>
-
-<!-- User Data Table -->
 <div class="box">
-    <button class="copy-btn" onclick="copyHTML(this)">Copy HTML</button>
+    <h3>Advanced Form Elements</h3>
+    <form>
+        <fieldset style="border: 1px solid #ccc; background:#fcfcfc; padding:15px; margin-bottom:15px;">
+            <legend style="color:#ff9900; font-weight:bold; padding:0 5px;">Pickers</legend>
+            <div style="margin-bottom:10px;">
+                <label>Theme Color</label>
+                <input type="color" value="#ff9900" style="height:30px; padding:0;">
+            </div>
+            <div style="margin-bottom:10px;">
+                <label>Volume</label>
+                <input type="range" style="vertical-align:middle;">
+            </div>
+        </fieldset>
+
+        <fieldset style="border: 1px solid #ccc; background:#fcfcfc; padding:15px;">
+            <legend style="color:#ff9900; font-weight:bold; padding:0 5px;">Scheduling</legend>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+                <input type="datetime-local">
+                <input type="month">
+                <input type="time">
+            </div>
+        </fieldset>
+
+        <div style="margin-top:15px;">
+            <input type="reset" value="Reset" class="btn btn-secondary">
+            <input type="submit" value="Save Changes" class="btn">
+        </div>
+    </form>
+</div>
+
+<div class="box">
+    <h3>Typography</h3>
+    <p>Use <mark>&lt;mark&gt;</mark> to highlight text.</p>
+    <p>Shortcuts: <kbd>Ctrl</kbd> + <kbd>C</kbd></p>
+    <p>Formulas: H<sub>2</sub>O and E = mc<sup>2</sup></p>
+    <hr style="border:0; border-top:1px dashed #ccc; margin:15px 0;">
+    <p style="font-size: 11px; color: #666;">Published: <time>Dec 30, 2025</time></p>
+</div>
+
+<div class="box">
+    <h3>Advanced Media</h3>
+    <div style="display:flex; gap:15px; flex-wrap:wrap;">
+        <div style="flex:1;">
+            <h4>SVG</h4>
+            <svg width="60" height="60" viewBox="0 0 100 100" style="border:1px solid #ccc; background:#fff;">
+                <circle cx="50" cy="50" r="40" stroke="#333" stroke-width="4" fill="#ff9900"></circle>
+                <text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#fff" font-family="sans-serif">SVG</text>
+            </svg>
+        </div>
+        <div style="flex:1;">
+            <h4>Canvas</h4>
+            <canvas id="myCanvas" width="100" height="60" style="border:1px solid #ccc; background:#fff;"></canvas>
+            <script>
+                var c = document.getElementById("myCanvas");
+                var ctx = c.getContext("2d");
+                ctx.strokeStyle = "#ff9900";
+                ctx.lineWidth = 3;
+                ctx.moveTo(0,0); ctx.lineTo(100,60); ctx.stroke();
+                ctx.fillStyle = "#333";
+                ctx.fillText("Canvas", 10, 50);
+            </script>
+        </div>
+    </div>
+    <h4 style="margin-top:15px;">Iframe</h4>
+    <iframe src="https://www.wikipedia.org" style="width:100%; height:120px; border:1px solid #ccc;"></iframe>
+</div>
+
+<div class="box">
+    <h3>Lists</h3>
+    <div style="display:flex; gap:20px;">
+        <div style="flex:1;">
+            <h4>Unordered</h4>
+            <ul>
+                <li>Responsive</li>
+                <li>Clean Interface</li>
+            </ul>
+        </div>
+        <div style="flex:1;">
+            <h4>Ordered</h4>
+            <ol>
+                <li>Plan</li>
+                <li>Design</li>
+                <li>Code</li>
+            </ol>
+        </div>
+    </div>
+    <h4>Definition List</h4>
+    <dl style="border:1px solid #eee; padding:5px;">
+        <dt>HTML</dt><dd>HyperText Markup Language</dd>
+        <dt>CSS</dt><dd>Cascading Style Sheets</dd>
+    </dl>
+</div>
+
+<div class="box">
     <h3>User Data Table</h3>
-    <div class="box-content">
-        <table class="data-table">
+    <div style="overflow-x:auto;">
+        <table class="grid-classic">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -116,28 +195,37 @@ layout = "default"
                 </tr>
             </thead>
             <tbody>
-                <tr><td>Jane Doe</td><td>Software Engineer</td><td>Active</td><td>Member</td></tr>
-                <tr><td>John Smith</td><td>Lead Developer</td><td>Pending</td><td>Admin</td></tr>
+                <tr>
+                    <td>Jane Doe</td>
+                    <td>Software Engineer</td>
+                    <td>Active</td>
+                    <td>Member</td>
+                </tr>
+                <tr>
+                    <td>John Smith</td>
+                    <td>Lead Developer</td>
+                    <td>Pending</td>
+                    <td>Admin</td>
+                </tr>
+                <tr>
+                    <td>Sarah Connor</td>
+                    <td>UI/UX Designer</td>
+                    <td>Active</td>
+                    <td>Member</td>
+                </tr>
             </tbody>
             <tfoot>
-                <tr><td colspan="4" style="text-align:center; font-style:italic; background:#f9f9f9;">Total Users: 2</td></tr>
+                <tr>
+                    <td colspan="4">Total Users: 3</td>
+                </tr>
             </tfoot>
         </table>
     </div>
 </div>
 
-<script>
-function copyHTML(btn) {
-    const boxContent = btn.parentElement.querySelector('.box-content').innerHTML;
-    const cleanHTML = boxContent.trim();
-    const tempInput = document.createElement('textarea');
-    tempInput.value = cleanHTML;
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    document.execCommand('copy');
-    document.body.removeChild(tempInput);
-    const originalText = btn.innerText;
-    btn.innerText = "Copied!";
-    setTimeout(() => btn.innerText = originalText, 2000);
-}
-</script>
+{% if show_comments %}
+<div class="box">
+    <h3>Comments</h3>
+    <p>Comments are enabled for this page. <a href="{{ 'forum'|page }}">Join the discussion in our Forum</a>.</p>
+</div>
+{% endif %}

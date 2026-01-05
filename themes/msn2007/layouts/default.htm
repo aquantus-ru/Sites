@@ -1,59 +1,168 @@
-description = "Default layout"
+description = "Delivery Layout"
 default = true
+
+[staticMenu headerMenu]
+code = "header-menu"
+
+[staticMenu sideMenu]
+code = "side-menu"
 ==
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ this.page.title }} - COHERENT.sbs</title>
-
-    <!-- Pure.css CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css">
-
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Three.js for Header Animation -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-    <link href="{{ 'assets/css/msn.css'|theme }}" rel="stylesheet">
-    {% styles %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ this.page.title }} | COHERENT (Delivery Style)</title>
+<link href="{{ 'assets/css/msn.css'|theme }}" rel="stylesheet">
+{% styles %}
 </head>
 <body>
 
-<div id="page-wrapper">
+{% partial "site/header" %}
 
-    {% partial "site/header" %}
+<div class="page-wrapper">
 
-    <!-- Main Container -->
-    <div class="container-flex">
+    <aside>
+        {% partial "site/sidebar" %}
+    </aside>
 
-        <!-- Sidebar Column -->
-        <aside class="sidebar-col">
-            {% partial "site/sidebar" %}
-        </aside>
-
-        <!-- Main Content Column -->
-        <main class="main-col">
-            {% page %}
-        </main>
-    </div>
-
-    {% partial "site/footer" %}
-
+    <main>
+        {% page %}
+    </main>
 </div>
 
-{# jQuery AJAX Framework #}
-<script src="{{ [
-    '@jquery',
-    '@framework',
-    '@framework.extras',
-] | theme }}"></script>
+{% partial "site/footer" %}
 
-<script src="{{ 'assets/js/header-animation.js'|theme }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+    (function() {
+        const config = {
+            "count": 120,
+            "size": 0.4,
+            "linkDist": 15,
+            "speed": 0.3,
+            "spread": 80,
+            "particleColor": "#ff9900", // Orange particles
+            "lineColor": "#ffffff",     // White lines
+            "bgColor": "#333333"        // Dark Gray background matches header
+        };
+        const container = document.getElementById('canvas-container');
+        if (!container) return; // Guard clause if container missing
 
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+
+        renderer.setSize(container.offsetWidth, container.offsetHeight);
+        container.appendChild(renderer.domElement);
+
+        camera.position.z = 100;
+
+        const particleGroup = new THREE.Group();
+        scene.add(particleGroup);
+
+        let particlesData = [];
+        let pointCloud;
+        let linesMesh;
+
+        function init() {
+            const geometry = new THREE.BufferGeometry();
+            const pPositions = [];
+            const r = config.spread;
+
+            for (let i = 0; i < config.count; i++) {
+                let x = (Math.random() - 0.5) * 2 * r * 3;
+                let z = (Math.random() - 0.5) * 2 * r;
+                let y = Math.sin(x * 0.05) * 10;
+                pPositions.push(x, y, z);
+                particlesData.push({
+                    velocity: new THREE.Vector3(-0.5 + Math.random(), -0.5 + Math.random(), -0.5 + Math.random()),
+                    originalX: x, originalZ: z
+                });
+            }
+
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(pPositions, 3));
+            const pMaterial = new THREE.PointsMaterial({ color: config.particleColor, size: config.size, transparent: true, opacity: 0.9 });
+            pointCloud = new THREE.Points(geometry, pMaterial);
+            particleGroup.add(pointCloud);
+
+            const segments = config.count * config.count;
+            const lGeometry = new THREE.BufferGeometry();
+            lGeometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array(segments * 3), 3).setUsage(THREE.DynamicDrawUsage));
+            lGeometry.setAttribute('color', new THREE.BufferAttribute(new Float32Array(segments * 3), 3).setUsage(THREE.DynamicDrawUsage));
+            const lMaterial = new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.3 });
+            linesMesh = new THREE.LineSegments(lGeometry, lMaterial);
+            particleGroup.add(linesMesh);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            let vertexpos = 0;
+            let colorpos = 0;
+            let numConnected = 0;
+
+            const positions = pointCloud.geometry.attributes.position.array;
+            const colors = linesMesh.geometry.attributes.color.array;
+            const linePositions = linesMesh.geometry.attributes.position.array;
+
+            const lineCol = new THREE.Color(config.lineColor);
+
+            // Simple Wave Motion
+            const time = Date.now() * 0.001 * config.speed;
+            for (let i = 0; i < config.count; i++) {
+                const data = particlesData[i];
+                positions[i*3+1] = Math.sin(data.originalX * 0.05 + time) * 15;
+
+                // Connecting Lines
+                for (let j = i + 1; j < config.count; j++) {
+                    const dx = positions[i*3] - positions[j*3];
+                    const dy = positions[i*3+1] - positions[j*3+1];
+                    const dz = positions[i*3+2] - positions[j*3+2];
+                    const dist = Math.sqrt(dx*dx+dy*dy+dz*dz);
+
+                    if (dist < config.linkDist) {
+                        linePositions[vertexpos++] = positions[i*3];
+                        linePositions[vertexpos++] = positions[i*3+1];
+                        linePositions[vertexpos++] = positions[i*3+2];
+                        linePositions[vertexpos++] = positions[j*3];
+                        linePositions[vertexpos++] = positions[j*3+1];
+                        linePositions[vertexpos++] = positions[j*3+2];
+
+                        colors[colorpos++] = lineCol.r; colors[colorpos++] = lineCol.g; colors[colorpos++] = lineCol.b;
+                        colors[colorpos++] = lineCol.r; colors[colorpos++] = lineCol.g; colors[colorpos++] = lineCol.b;
+                        numConnected++;
+                    }
+                }
+            }
+
+            linesMesh.geometry.setDrawRange(0, numConnected * 2);
+            linesMesh.geometry.attributes.position.needsUpdate = true;
+            linesMesh.geometry.attributes.color.needsUpdate = true;
+            pointCloud.geometry.attributes.position.needsUpdate = true;
+
+            renderer.render(scene, camera);
+        }
+
+        init();
+        animate();
+
+        // Handle Resize
+        const resizeObserver = new ResizeObserver(entries => {
+            for (let entry of entries) {
+                if(entry.contentRect.width > 0) {
+                    camera.aspect = entry.contentRect.width / entry.contentRect.height;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(entry.contentRect.width, entry.contentRect.height);
+                }
+            }
+        });
+
+        if (container.parentElement) {
+            resizeObserver.observe(container.parentElement);
+        }
+    })();
+</script>
 {% scripts %}
-
 </body>
 </html>

@@ -1,0 +1,26 @@
+name: "Sidebar Navigation"
+items:
+    -
+        title: Welcome
+        type: cms-page
+        reference: home
+        code: home
+        replace: 0
+    -
+        title: "Blog Posts"
+        type: url
+        url: '/blog'
+        code: ''
+        replace: 0
+    -
+        title: "Style Test"
+        type: cms-page
+        reference: style-test
+        code: style-test
+        replace: 0
+    -
+        title: "Office"
+        type: url
+        url: '/office'
+        code: ''
+        replace: 0

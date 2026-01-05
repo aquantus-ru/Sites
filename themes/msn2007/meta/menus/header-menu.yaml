@@ -1,0 +1,14 @@
+name: "Top Bar"
+items:
+    -
+        title: Login
+        type: url
+        url: '#'
+        code: ''
+        replace: 0
+    -
+        title: Forum
+        type: cms-page
+        reference: forum/home
+        code: forum
+        replace: 0

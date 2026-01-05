@@ -1,0 +1,5 @@
+{% if menuItems %}
+    {% for item in menuItems %}
+        <a href="{{ item.url }}" class="{{ item.isActive ? 'active' : '' }}">{{ item.title }}</a>
+    {% endfor %}
+{% endif %}

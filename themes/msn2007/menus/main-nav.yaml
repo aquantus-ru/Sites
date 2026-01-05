@@ -1,0 +1,17 @@
+name: "Main Navigation (Row 2)"
+items:
+    -
+        title: HOME
+        type: cms-page
+        reference: home
+        code: home
+    -
+        title: FORUM
+        type: cms-page
+        reference: forum/home
+        code: forum
+    -
+        title: 'STYLE TEST'
+        type: cms-page
+        reference: style-test
+        code: style-test

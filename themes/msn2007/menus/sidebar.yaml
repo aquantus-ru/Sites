@@ -1,0 +1,52 @@
+name: "Sidebar Links"
+items:
+    -
+        title: Welcome
+        type: url
+        url: '#'
+        code: ''
+    -
+        title: Search
+        type: url
+        url: '#'
+        code: ''
+    -
+        title: Contact
+        type: url
+        url: '#'
+        code: ''
+    -
+        title: 'Blog Posts'
+        type: url
+        url: '#'
+        code: ''
+    -
+        title: Office
+        type: url
+        url: '#'
+        code: ''
+    -
+        title: Religion
+        type: url
+        url: '#'
+        code: ''
+    -
+        title: 'PHP Examples'
+        type: url
+        url: '#'
+        code: ''
+    -
+        title: Services
+        type: url
+        url: '#'
+        code: ''
+    -
+        title: Linguistics
+        type: url
+        url: '#'
+        code: ''
+    -
+        title: 'MD Examples'
+        type: url
+        url: '#'
+        code: ''

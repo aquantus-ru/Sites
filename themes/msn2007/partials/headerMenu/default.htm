@@ -1,0 +1,5 @@
+{% if __SELF__.menuItems %}
+    {% for item in __SELF__.menuItems %}
+        <a href="{{ item.url }}" class="{{ item.isActive ? 'active' : '' }}">{{ item.title }}</a>
+    {% endfor %}
+{% endif %}

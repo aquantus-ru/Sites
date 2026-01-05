@@ -1,156 +1,179 @@
-/* --- Base System Fonts & Colors (2007ish) --- */
-body, html {
-    height: 100%;
-    margin: 0;
-    font-family: Tahoma, Verdana, Arial, sans-serif;
-    font-size: 12px;
-    background: #ececec url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=2622&auto=format&fit=crop') no-repeat center center fixed;
-    background-size: cover;
+/* --- Base Reference Styles (Delivery App) --- */
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 13px;
+    background: #e5e5e5;
     color: #333;
+    margin: 0;
 }
 
-a { color: #003366; text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-#page-wrapper {
-    background-color: white;
-    width: 100%;
-    max-width: 960px;
-    margin: 20px auto;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    border: 1px solid #444;
-    display: flex;
-    flex-direction: column;
+/* --- Header --- */
+.header-main {
+    background: #333;
+    border-bottom: 4px solid #ff9900;
+    padding: 15px 0;
+    position: relative;
 }
-
-/* --- Super Topbar --- */
-.super-topbar {
-    background: #222;
-    color: #ccc;
-    padding: 4px 15px;
-    font-size: 10px;
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid #000;
-}
-.super-topbar a { color: #fff; font-weight: bold; }
-.bold { font-weight: bold; }
-
-/* --- Header & Three.js Wave (Yellow Theme Reinstated) --- */
-.header {
-    background-color: #f1c40f;
-    height: 80px;
-    position: relative;
-    display: flex;
     align-items: center;
-    overflow: hidden;
-    border-bottom: 2px solid #d4ac0d;
+    position: relative;
+    z-index: 2; /* Sit above canvas */
 }
-.logo-wrap { position: relative; z-index: 2; padding-left: 30px; }
-.logo h1 { color: #003366; margin: 0; text-shadow: 0 1px 2px rgba(255,255,255,0.5); font-size: 28px; }
-.logo-ext { font-weight: normal; font-family: Arial; font-size: 18px; color: #444; }
-#canvas-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
-
-/* --- Search Area --- */
-.search-area {
-    background: #f4f4f4;
-    padding: 8px 15px;
-    border-bottom: 1px solid #ccc;
-}
-.btn-primary {
-    background: linear-gradient(to bottom, #4285f4 0%, #2b6ed1 100%);
-    border: 1px solid #1a54a1;
-    color: white;
+.header-brand {
+    color: #ff9900;
+    text-decoration: none;
     font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 20px;
+}
+.header-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 20px;
+}
+.header-links a:hover { color: #ff9900; }
+
+/* --- Three.js Background Container --- */
+#canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.5; /* Subtle background effect */
+    overflow: hidden;
+}
+
+/* --- Layout Grid --- */
+.page-wrapper {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+/* --- Card/Box Style (Matches Reference .container) --- */
+.box {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+/* --- Headings --- */
+h3 {
+    border-bottom: 2px solid #ff9900;
+    padding-bottom: 5px;
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #444;
+    text-transform: uppercase;
+}
+h4 { margin: 15px 0 5px; color: #222; font-size: 13px; font-weight: bold; }
+
+/* --- Sidebar Navigation --- */
+.nav-list { list-style: none; padding: 0; margin: 0; }
+.nav-list li { border-bottom: 1px solid #eee; padding: 8px 0; }
+.nav-list li:last-child { border-bottom: none; }
+.nav-list a { color: #333; text-decoration: none; font-size: 12px; }
+.nav-list a:hover { color: #ff9900; text-decoration: underline; }
+.nav-list a.highlight { color: #ff9900; font-weight: bold; }
+
+/* --- Details/Summary (Accordion) --- */
+details { border: 1px solid #eee; margin-bottom: 5px; }
+summary {
+    background: #f9f9f9;
+    padding: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+    color: #444;
+    list-style: none;
+}
+summary:hover { background: #eee; }
+summary::after { content: '+'; float: right; color: #ff9900; font-weight: bold; }
+details[open] summary::after { content: '-'; }
+.details-content { padding: 10px; font-size: 12px; color: #666; }
+
+/* --- Forms & Buttons --- */
+input[type="text"], input[type="search"], input[type="password"], select, textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-family: inherit;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+input[type="text"]:focus { border-color: #ff9900; outline: none; }
+
+.btn, button, input[type="submit"], input[type="button"], input[type="reset"] {
+    background: #ff9900;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    font-weight: bold;
+    text-transform: uppercase;
     font-size: 11px;
     cursor: pointer;
-    padding: 2px 6px;
+    border-radius: 2px;
 }
+.btn:hover { background: #cc7a00; }
+.btn-secondary { background: #666; }
 
-/* --- Navigation Bars --- */
-.channel-nav, .sub-channel-nav {
-    background: #333;
-    border-bottom: 1px solid #111;
+/* --- Tables (Matches Reference .grid-classic) --- */
+.grid-classic { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 12px; }
+.grid-classic th { background: #666; color: #fff; padding: 10px; text-align: left; font-size: 11px; text-transform: uppercase; }
+.grid-classic td { border: 1px solid #eee; padding: 10px; vertical-align: middle; }
+.grid-classic tfoot td { background: #f0f0f0; font-style: italic; text-align: center; color: #666; }
+
+/* --- Interactive Elements --- */
+progress {
+    width: 100%; height: 20px;
+    appearance: none; -webkit-appearance: none;
 }
-.channel-nav ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; }
-.channel-nav li a {
-    display: block;
-    padding: 8px 20px;
-    color: #fff;
-    font-weight: bold;
+progress::-webkit-progress-bar { background: #eee; }
+progress::-webkit-progress-value { background: #ff9900; }
+progress::-moz-progress-bar { background: #ff9900; }
+
+meter { width: 100%; height: 20px; }
+
+/* Code Blocks */
+pre { background: #333; color: #fff; padding: 10px; overflow-x: auto; font-family: Consolas, monospace; }
+code { background: #eee; padding: 2px 4px; color: #d63384; font-family: Consolas, monospace; }
+
+/* --- Footer --- */
+.footer-main {
+    background: #fff;
+    border-top: 4px solid #333;
+    padding: 20px;
+    text-align: center;
+    color: #666;
     font-size: 11px;
-    text-transform: uppercase;
-    border-right: 1px solid #444;
+    margin-top: 40px;
 }
-.channel-nav li a:hover { background: #444; }
+.footer-main a { color: #666; text-decoration: none; margin: 0 5px; }
+.footer-main a:hover { color: #ff9900; }
 
-.sub-channel-nav {
-    background: #e9e9e9;
-    padding: 5px 15px;
-    border-bottom: 1px solid #ccc;
-}
-.sub-channel-nav a { font-size: 10px; color: #555; margin-right: 15px; font-weight: bold; }
-
-/* --- Main Layout Grid --- */
-.container-flex { display: flex; flex-direction: row; }
-.sidebar-col { width: 220px; background: #f9f9f9; border-right: 1px solid #ccc; padding: 15px; flex-shrink: 0; }
-.main-col { flex: 1; padding: 20px; background: #fff; min-height: 600px; }
-
-/* --- UI Boxes --- */
-.box { border: 1px solid #ccc; background: #fff; margin-bottom: 15px; }
-.box h3 {
-    margin: 0; padding: 6px 12px;
-    background: linear-gradient(to bottom, #f9f9f9 0%, #e2e2e2 100%);
-    font-size: 11px; border-bottom: 1px solid #ccc;
-    color: #333; text-transform: uppercase; font-weight: bold;
-}
-.box-content { padding: 10px; font-size: 12px; line-height: 1.5; }
-
-/* --- Navigation Lists --- */
-.sidebar-nav-list { list-style: none; padding: 0; margin: 0; }
-.sidebar-nav-list li { border-bottom: 1px solid #eee; padding: 4px 0; }
-.sidebar-nav-list li a { font-size: 11px; color: #444; display: block; }
-.sidebar-nav-list li a:hover { color: #003366; font-weight: bold; }
-
-/* --- Main Content Items --- */
-.copy-btn {
-    float: right; padding: 2px 8px; font-size: 11px;
-    cursor: pointer; background: #f0f0f0; border: 1px solid #ccc;
-    border-radius: 3px; margin-top: -3px;
-}
-.copy-btn:hover { background: #e0e0e0; }
-
-pre { background: #000; color: #00ff00; padding: 10px; font-family: 'Courier New', monospace; font-size: 11px; margin: 10px 0; border: 1px solid #333; overflow-x: auto;}
-hr { border: 0; border-top: 1px solid #eee; margin: 20px 0; }
-
-/* Structural Demo */
-.structure-demo { border: 1px solid #ddd; padding: 10px; margin-top: 15px; position: relative; }
-.structure-label { position: absolute; top: -8px; left: 10px; background: #fff; padding: 0 4px; font-size: 9px; color: #4285f4; font-family: monospace; }
-
-/* Footer */
-footer {
-    background: #333; color: #ccc; padding: 10px 20px;
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 10px; border-top: 1px solid #000;
-}
-footer a { color: #fff; margin: 0 5px; }
-.windows-logo { width: 14px; vertical-align: middle; margin-right: 3px; }
-
-/* Interactive Elements */
-details summary { cursor: pointer; font-weight: bold; outline: none; }
-progress, meter { width: 100%; height: 10px; margin: 5px 0 10px 0; }
-dialog { border: 1px solid #000; padding: 0; width: 300px; font-size: 12px; }
-.dialog-header { background: #333; color: #fff; padding: 5px 10px; font-weight: bold; display: flex; justify-content: space-between; }
-.dialog-body { padding: 15px; }
-
-/* Data Tables */
-.data-table { width: 100%; border-collapse: collapse; font-size: 11px; }
-.data-table th, .data-table td { border: 1px solid #eee; padding: 6px; text-align: left; }
-.data-table th { background: #f4f4f4; }
-
+/* Responsive */
 @media (max-width: 768px) {
-    #page-wrapper { margin: 0; border: none; max-width: 100%; }
-    .container-flex { flex-direction: column; }
-    .sidebar-col { width: auto; border-right: none; border-bottom: 1px solid #ccc; }
-    .header h1 { font-size: 20px; }
+    .page-wrapper { grid-template-columns: 1fr; }
+    .header-container { flex-direction: column; gap: 10px; text-align: center; }
+    .header-links { margin-top: 10px; }
+    .header-links a { margin: 0 10px; }
 }
