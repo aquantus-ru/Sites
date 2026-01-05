@@ -2,6 +2,142 @@ title = "Home"
 url = "/"
 layout = "default"
 ==
-<div class="container mx-auto">
-    <h1><span class="text-primary">Home</span> <span class="text-secondary">Page</span></h1>
+<!-- BB Code -->
+<div class="box">
+    <button class="copy-btn" onclick="copyHTML(this)">Copy HTML</button>
+    <h3>BB Code</h3>
+    <div class="box-content">
+        Do you believe in a higher power?
+        <ul style="list-style: none; padding-left: 0; margin: 10px 0;">
+            <li><label><input type="checkbox"> Yes</label></li>
+            <li><label><input type="checkbox"> No</label></li>
+        </ul>
+        <pre>{{ "now"|date("l, F jS, Y, g:i A") }}</pre>
+    </div>
 </div>
+
+<hr>
+
+<!-- Hit Counter -->
+<div class="box">
+    <button class="copy-btn" onclick="copyHTML(this)">Copy HTML</button>
+    <h3>Hit Counter</h3>
+    <div class="box-content">
+        This page has been viewed: <strong class="bold">1,024</strong>
+    </div>
+</div>
+
+<hr>
+
+<!-- Interactive Elements -->
+<div class="box">
+    <button class="copy-btn" onclick="copyHTML(this)">Copy HTML</button>
+    <h3>Interactive Elements</h3>
+    <div class="box-content">
+        <h4 style="margin: 0 0 5px 0; font-size:11px;">Accordions</h4>
+        <details>
+            <summary style="font-size:11px;">System Requirements</summary>
+            <div style="padding:10px; font-size:11px; color:#666;">
+                Windows XP or Vista, IE 6.0+, 512MB RAM.
+            </div>
+        </details>
+
+        <h4 style="margin: 15px 0 5px 0; font-size:11px;">Status Indicators</h4>
+        <label style="font-size:10px; color:#888;">Download Progress:</label>
+        <progress value="70" max="100"></progress>
+        <meter min="0" max="100" low="30" high="80" optimum="20" value="85"></meter>
+
+        <h4 style="margin: 15px 0 5px 0; font-size:11px;">Modal Window</h4>
+        <button onclick="document.getElementById('demo-dialog').showModal()" class="btn-primary" style="padding: 4px 10px;">Open Launch Dialog</button>
+
+        <dialog id="demo-dialog">
+            <div class="dialog-header">
+                <span>System Alert</span>
+                <span onclick="document.getElementById('demo-dialog').close()" style="cursor:pointer;">X</span>
+            </div>
+            <div class="dialog-body">
+                <p>This is a native HTML &lt;dialog&gt; element.</p>
+                <form method="dialog" style="display:flex; gap:5px;">
+                    <button class="btn-primary" style="flex:1;">OK</button>
+                    <button style="flex:1;">Cancel</button>
+                </form>
+            </div>
+        </dialog>
+    </div>
+</div>
+
+<hr>
+
+<!-- Structural Semantics -->
+<div class="box">
+    <button class="copy-btn" onclick="copyHTML(this)">Copy HTML</button>
+    <h3>Structural Semantics</h3>
+    <div class="box-content">
+        <div class="structure-demo">
+            <span class="structure-label">&lt;article&gt;</span>
+            <article>
+                <header class="structure-demo" style="background: #e6eff9;">
+                    <span class="structure-label">&lt;header&gt;</span>
+                    <strong>My Blog Post Title</strong>
+                </header>
+                <div style="display: flex; gap: 5px; margin-top: 5px;">
+                    <main class="structure-demo" style="flex: 2;">
+                        <span class="structure-label">&lt;main&gt;</span>
+                        <p>Main content area logic.</p>
+                    </main>
+                    <aside class="structure-demo" style="flex: 1;">
+                        <span class="structure-label">&lt;aside&gt;</span>
+                        <nav><a href="#">Link</a></nav>
+                    </aside>
+                </div>
+                <footer class="structure-demo" style="background: #eee; margin-top: 5px;">
+                    <span class="structure-label">&lt;footer&gt;</span>
+                    <small>&copy; 2026</small>
+                </footer>
+            </article>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<!-- User Data Table -->
+<div class="box">
+    <button class="copy-btn" onclick="copyHTML(this)">Copy HTML</button>
+    <h3>User Data Table</h3>
+    <div class="box-content">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Title</th>
+                    <th>Status</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Jane Doe</td><td>Software Engineer</td><td>Active</td><td>Member</td></tr>
+                <tr><td>John Smith</td><td>Lead Developer</td><td>Pending</td><td>Admin</td></tr>
+            </tbody>
+            <tfoot>
+                <tr><td colspan="4" style="text-align:center; font-style:italic; background:#f9f9f9;">Total Users: 2</td></tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<script>
+function copyHTML(btn) {
+    const boxContent = btn.parentElement.querySelector('.box-content').innerHTML;
+    const cleanHTML = boxContent.trim();
+    const tempInput = document.createElement('textarea');
+    tempInput.value = cleanHTML;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+    const originalText = btn.innerText;
+    btn.innerText = "Copied!";
+    setTimeout(() => btn.innerText = originalText, 2000);
+}
+</script>

@@ -1,16 +1,14 @@
+<!-- Footer -->
 <footer>
-    <p>&copy; 2007 Microsoft Corporation. All rights reserved.</p>
-    <p><a href="#">Privacy</a> | <a href="#">Terms of Use</a></p>
+    <div class="left-links">
+        <img src="https://pub-a012c65ca1384df0a3e2c41cb4b36f5c.r2.dev/placeholders/P-15de0cdf-e380-4f7b-8ffc-24fbbb1fe92c.png" class="windows-logo"><a href="#">Privacy</a> |
+        <img src="https://pub-a012c65ca1384df0a3e2c41cb4b36f5c.r2.dev/placeholders/L-9406422a-38aa-4639-bd35-fb84b0c8035b.png" class="windows-logo"><a href="#">Legal</a>
+    </div>
+    <div class="copyright">
+        &copy; 2026 COHERENT
+    </div>
+    <div class="right-links">
+        <img src="https://pub-a012c65ca1384df0a3e2c41cb4b36f5c.r2.dev/placeholders/P-66f3db23-b3e6.png" class="windows-logo"><a href="#">Statistics</a> |
+        <img src="https://pub-a012c65ca1384df0a3e2c41cb4b36f5c.r2.dev/placeholders/S-55761e4d-dcfa.png" class="windows-logo"><a href="{{ '/sitemap.xml'|app }}">Site Map</a>
+    </div>
 </footer>
-
-{% scripts %}
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-{% framework extras %}
-<script>
-$(document).ready(function() {
-    // Simple Accordion
-    $('.accordion-header').click(function() {
-        $(this).next('.accordion-content').slideToggle();
-    });
-});
-</script>

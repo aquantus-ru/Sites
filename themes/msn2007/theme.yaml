@@ -1,21 +1,5 @@
-name: "msn2007"
-description: "No description provided yet..."
-author: "Winter CMS Scaffold"
-homepage: "https://example.com"
+name: "MSN 2007 (Yellow Portal)"
+description: "A retro MSN 2007 inspired theme with a yellow header and blue content area."
+author: "Jules"
+homepage: "https://coherent.sbs"
 code: "msn2007"
-form:
-    fields:
-        googleanalytics_id:
-            label: themes.msn2007::lang.options.googleanalytics_id
-            type: text
-            span: full
-        color_primary:
-            label: themes.msn2007::lang.options.color_primary
-            type: colorpicker
-            span: left
-            default: "#103141"
-        color_secondary:
-            label: themes.msn2007::lang.options.color_secondary
-            type: colorpicker
-            span: right
-            default: "#2DA7C7"

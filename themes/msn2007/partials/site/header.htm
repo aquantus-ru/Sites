@@ -1,20 +1,45 @@
-<header>
-    <a href="{{ '/'|app }}" class="logo">
-        <span class="butterfly"></span>
-        <span>MSN</span>
-    </a>
-    <div class="search-bar">
-        <input type="text" placeholder="Web Search">
-        <button type="button">Search</button>
+<!-- Super Topbar -->
+<div class="super-topbar">
+    <div class="left-links">
+        <span class="bold">{{ "now"|date("l, F j, Y") }}</span>
     </div>
-</header>
+    <div class="right-links">
+        <a href="#">LOGIN</a>
+    </div>
+</div>
 
-<nav>
+<!-- Header with Wave (Yellow Theme Reinstated) -->
+<div class="header">
+    <div id="canvas-bg"></div>
+    <div class="logo-wrap">
+        <div class="logo">
+            <h1>COHERENT<span class="logo-ext">.sbs</span></h1>
+        </div>
+    </div>
+</div>
+
+<!-- Search Area -->
+<div class="search-area">
+    <form id="search_form" onsubmit="return false;" style="display:flex; flex-direction:column; gap:5px;">
+        <label for="search_input" style="font-weight:bold; color:#444; font-size:11px;">Search:</label>
+        <div style="display:flex; gap:5px;">
+            <input type="search" id="search_input" style="flex:1; border: 1px solid #7f9db9; padding: 3px;" placeholder="e.g. Market Trends...">
+            <input type="submit" value="Search" class="btn-primary">
+        </div>
+    </form>
+</div>
+
+<!-- Channel Navigation -->
+<div class="channel-nav">
     <ul>
         <li><a href="{{ '/'|app }}">Home</a></li>
+        <li><a href="{{ '/forum'|app }}">Forum</a></li>
         <li><a href="{{ '/style-test'|app }}">Style Test</a></li>
-        <li><a href="{{ '/forum'|app }}">Forums</a></li>
-        <li><a href="#">Hotmail</a></li>
-        <li><a href="#">Messenger</a></li>
     </ul>
-</nav>
+</div>
+
+<!-- Sub-Channel Navigation -->
+<div class="sub-channel-nav">
+    <a href="#">Craigslist Jobs Stats</a>
+    <a href="#">Jobble Stats</a>
+</div>
