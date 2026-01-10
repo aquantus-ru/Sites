@@ -1,0 +1,18 @@
+title = "Profile"
+url = "/profile"
+layout = "default"
+
+[account]
+redirect = "profile"
+paramCode = "code"
+
+[viewBag]
+show_ratings = 0
+show_comments = 0
+==
+<div class="box">
+    <h3>User Profile</h3>
+    <div class="details-content">
+        {% component 'account' %}
+    </div>
+</div>

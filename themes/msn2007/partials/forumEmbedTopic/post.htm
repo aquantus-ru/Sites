@@ -1,0 +1,33 @@
+<div class="media" style="margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:15px;">
+    <div class="media-left" style="float:left; margin-right:15px;">
+        <a href="{{ post.member.url }}">
+            <img class="media-object member-avatar" src="{{ post.member.user.avatarThumb(50) }}" alt="{{ post.member.username }}" style="width:50px; height:50px;">
+        </a>
+    </div>
+    <div class="media-body">
+        <h5 class="media-heading">
+            {% if post.member.url %}
+                <a href="{{ post.member.url }}">{{ post.member.username }}</a>
+            {% else %}
+                {{ post.member.username }}
+            {% endif %}
+            <small class="text-muted">{{ post.created_at|date('M d, Y g:i A') }}</small>
+        </h5>
+
+        <div class="content">
+            {{ post.content_html|raw }}
+        </div>
+
+        <div class="actions" style="font-size:11px; margin-top:5px;">
+             {% if topic.canPost and post.canEdit %}
+                <a href="javascript:;"
+                    class="edit"
+                    data-request="onUpdate"
+                    data-request-data="post: {{ post.id }}"
+                    data-request-update="'{{ __SELF__ ~ '::post' }}': '#post-{{ post.id }}'">
+                    Edit
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>

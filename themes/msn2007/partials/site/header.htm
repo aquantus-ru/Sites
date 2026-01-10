@@ -4,6 +4,12 @@
         <a href="{{ 'home'|page }}" class="header-brand">APPS.COHERENT.SBS</a>
         <div class="header-links">
             <span>{{ "now"|date("l, F j, Y") }}</span>
+            {% if user %}
+                <a href="{{ 'profile'|page }}">Profile ({{ user.name }})</a>
+                <a href="#" data-request="onLogout" data-request-data="redirect: '/'">Logout</a>
+            {% else %}
+                <a href="{{ 'login'|page }}">Login</a>
+            {% endif %}
             {% component 'headerMenu' %}
         </div>
     </div>

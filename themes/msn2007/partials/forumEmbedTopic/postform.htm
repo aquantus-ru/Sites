@@ -1,0 +1,38 @@
+<div class="reply-form" id="postForm">
+
+    {{ form_open({ request: 'onPost' }) }}
+
+        <input type="hidden" name="topic" value="{{ topic.id }}" />
+
+        <div class="member-area">
+            {% if member %}
+                <img src="{{ member.user.avatarThumb(50) }}" class="member-avatar" alt="{{ member.username }}" />
+            {% else %}
+                <!-- Guest Avatar Placeholder -->
+                <img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y" class="member-avatar" alt="Guest" style="width:50px; height:50px;" />
+            {% endif %}
+        </div>
+
+        <div class="post-area">
+            {% if not member %}
+                <div style="margin-bottom:10px;">
+                    <label>Name:</label>
+                    <input type="text" name="guest_name" class="form-control" style="width:100%;" placeholder="Enter your name" required />
+                </div>
+            {% endif %}
+
+            <textarea
+                id="topicContent"
+                name="content"
+                rows="6"
+                class="form-control"
+                placeholder="Write your comment...">{{ form_value('content') }}</textarea>
+
+            <div class="post-buttons" style="margin-top:10px;">
+                <button type="submit" class="btn btn-primary">Post a Reply</button>
+            </div>
+        </div>
+
+    {{ form_close() }}
+
+</div>

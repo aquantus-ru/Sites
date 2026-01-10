@@ -37,7 +37,9 @@
     </details>
 </div>
 
-{% if show_ratings %}
+{% component 'forumStats' %}
+
+{% if viewBag.show_ratings %}
 <div class="box">
     <h3>Rate This Page</h3>
     <div class="details-content">

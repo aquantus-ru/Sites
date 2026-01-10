@@ -177,3 +177,27 @@ code { background: #eee; padding: 2px 4px; color: #d63384; font-family: Consolas
     .header-links { margin-top: 10px; }
     .header-links a { margin: 0 10px; }
 }
+
+/* Login Page Columns */
+.login-columns {
+    display: flex;
+    gap: 20px;
+}
+.login-col {
+    flex: 1;
+}
+@media (max-width: 600px) {
+    .login-columns {
+        flex-direction: column;
+    }
+    .login-col {
+        border-left: none !important;
+        border-top: 1px solid #eee;
+        padding-left: 0 !important;
+        padding-top: 20px;
+    }
+    .login-col:first-child {
+        border-top: none;
+        padding-top: 0;
+    }
+}

@@ -1,0 +1,35 @@
+<div class="box">
+    <h3>Forum Statistics</h3>
+    <div class="details-content">
+        <p>Total Topics: {{ totalTopics }}</p>
+        <p>Total Users: {{ totalUsers }}</p>
+    </div>
+</div>
+
+<div class="box">
+    <h3>Top Topics</h3>
+    <ul class="nav-list">
+        {% for topic in topTopics %}
+            <li>
+                <a href="{{ 'forum/topic'|page({slug: topic.slug}) }}">{{ topic.subject }}</a>
+                <span style="font-size:10px; color:#999;">({{ topic.count_views }} views)</span>
+            </li>
+        {% else %}
+            <li>No topics yet.</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="box">
+    <h3>New Users</h3>
+    <ul class="nav-list">
+        {% for user in newUsers %}
+            <li>
+                {{ user.name }}
+                <span style="font-size:10px; color:#999;">Joined {{ user.created_at|date('M d') }}</span>
+            </li>
+        {% else %}
+            <li>No users yet.</li>
+        {% endfor %}
+    </ul>
+</div>

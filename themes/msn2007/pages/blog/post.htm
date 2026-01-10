@@ -8,16 +8,13 @@ categoryPage = "blog/category"
 
 [vote]
 
-[forumEmbedTopic]
+[guestEmbedTopic forumEmbedTopic]
 embedCode = "blog-{{ :slug }}"
 channelSlug = "channel-orange"
-==
-<?php
-function onStart() {
-    $this['show_ratings'] = 1;
-    $this['show_comments'] = 1;
-}
-?>
+
+[viewBag]
+show_ratings = 1
+show_comments = 1
 ==
 <div class="box">
     <h3>{{ post.title }}</h3>
@@ -29,7 +26,7 @@ function onStart() {
     </div>
 </div>
 
-{% if show_ratings %}
+{% if viewBag.show_ratings %}
 <div class="box">
     <h3>Rate This Post</h3>
     <div class="details-content">
@@ -38,7 +35,7 @@ function onStart() {
 </div>
 {% endif %}
 
-{% if show_comments %}
+{% if viewBag.show_comments %}
 <div class="box">
     <h3>Comments</h3>
     {% component 'forumEmbedTopic' %}

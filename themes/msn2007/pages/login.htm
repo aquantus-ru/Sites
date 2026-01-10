@@ -10,15 +10,23 @@ paramCode = "code"
     <h3>Login / Register</h3>
     <div class="details-content">
         {% if not user %}
-            <div class="row">
-                <div class="col-md-6">
-                    <h4>Sign in</h4>
-                    {% component 'account' %}
+            <div class="login-columns">
+                <div class="login-col">
+                    <div class="box" style="margin-bottom:0; border:none; padding:0; box-shadow:none;">
+                        <h4 style="margin-top:0;">Sign in</h4>
+                        {% partial 'account::signin' %}
+                    </div>
+                </div>
+                <div class="login-col" style="border-left:1px solid #eee; padding-left:20px;">
+                    <div class="box" style="margin-bottom:0; border:none; padding:0; box-shadow:none;">
+                        <h4 style="margin-top:0;">Register</h4>
+                        {% partial 'account::register' %}
+                    </div>
                 </div>
             </div>
         {% else %}
             <p>Hello {{ user.name }}</p>
-            <p><a data-request="onLogout" data-request-data="redirect: '/login'">Sign out</a></p>
+            <p>You are already logged in.</p>
         {% endif %}
     </div>
 </div>
