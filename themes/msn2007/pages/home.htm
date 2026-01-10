@@ -3,6 +3,10 @@ url = "/"
 layout = "default"
 
 [vote]
+
+[forumEmbedTopic]
+embedCode = "home"
+channelSlug = "channel-orange"
 ==
 <?php
 function onStart() {
@@ -226,6 +230,7 @@ function onStart() {
 {% if show_comments %}
 <div class="box">
     <h3>Comments</h3>
-    <p>Comments are enabled for this page. <a href="{{ 'forum'|page }}">Join the discussion in our Forum</a>.</p>
+    {% component 'forumEmbedTopic' %}
+    <p style="font-size:11px; margin-top:5px;"><a href="{{ 'forum'|page }}">Back to Forum</a></p>
 </div>
 {% endif %}

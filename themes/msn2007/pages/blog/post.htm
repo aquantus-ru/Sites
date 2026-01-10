@@ -1,0 +1,47 @@
+title = "Blog Post"
+url = "/blog/post/:slug"
+layout = "default"
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "blog/category"
+
+[vote]
+
+[forumEmbedTopic]
+embedCode = "blog-{{ :slug }}"
+channelSlug = "channel-orange"
+==
+<?php
+function onStart() {
+    $this['show_ratings'] = 1;
+    $this['show_comments'] = 1;
+}
+?>
+==
+<div class="box">
+    <h3>{{ post.title }}</h3>
+    <div class="details-content">
+        {{ post.content_html|raw }}
+    </div>
+    <div style="margin-top:10px; font-size:11px; color:#666;">
+        Posted on {{ post.published_at|date('M d, Y') }}
+    </div>
+</div>
+
+{% if show_ratings %}
+<div class="box">
+    <h3>Rate This Post</h3>
+    <div class="details-content">
+        {% component 'vote' %}
+    </div>
+</div>
+{% endif %}
+
+{% if show_comments %}
+<div class="box">
+    <h3>Comments</h3>
+    {% component 'forumEmbedTopic' %}
+    <p style="font-size:11px; margin-top:5px;"><a href="{{ 'forum'|page }}">Back to Forum</a></p>
+</div>
+{% endif %}

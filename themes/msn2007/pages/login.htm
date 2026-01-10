@@ -1,0 +1,24 @@
+title = "Login"
+url = "/login"
+layout = "default"
+
+[account]
+redirect = "home"
+paramCode = "code"
+==
+<div class="box">
+    <h3>Login / Register</h3>
+    <div class="details-content">
+        {% if not user %}
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Sign in</h4>
+                    {% component 'account' %}
+                </div>
+            </div>
+        {% else %}
+            <p>Hello {{ user.name }}</p>
+            <p><a data-request="onLogout" data-request-data="redirect: '/login'">Sign out</a></p>
+        {% endif %}
+    </div>
+</div>
