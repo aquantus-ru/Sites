@@ -1,0 +1,26 @@
+<?= Form::open() ?>
+    <input type="hidden" name="path" value="<?= e($path) ?>" />
+
+    <div class="layout-row">
+        <div class="form-group">
+            <label>Content (Markdown with Front Matter)</label>
+            <textarea name="content" class="form-control size-huge field-textarea" style="height: 600px; font-family: monospace;"><?= e($content) ?></textarea>
+        </div>
+    </div>
+
+    <div class="form-buttons">
+        <div class="loading-indicator-container">
+            <button
+                type="submit"
+                data-request="onSave"
+                data-hotkey="ctrl+s, cmd+s"
+                data-load-indicator="Saving..."
+                class="btn btn-primary">
+                Save
+            </button>
+            <span class="btn-text">
+                or <a href="<?= Backend::url('jules/mdpages/manager') ?>">Cancel</a>
+            </span>
+        </div>
+    </div>
+<?= Form::close() ?>
