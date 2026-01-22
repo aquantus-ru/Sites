@@ -1,0 +1,37 @@
+<?= $this->makePartial('toolbar') ?>
+
+<div class="control-list">
+    <table class="table data">
+        <thead>
+            <tr>
+                <th><span>File Path</span></th>
+                <th class="list-action">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($files as $file): ?>
+                <tr>
+                    <td>
+                        <a href="<?= Backend::url('jules/mdpages/manager/update') ?>?path=<?= urlencode($file) ?>">
+                            <?= e($file) ?>
+                        </a>
+                    </td>
+                    <td class="nolink">
+                        <a href="<?= Backend::url('jules/mdpages/manager/update') ?>?path=<?= urlencode($file) ?>" class="btn btn-secondary btn-sm">
+                            Edit
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+            <?php if (count($files) === 0): ?>
+                <tr>
+                    <td colspan="2" class="list-pagination nolink">
+                        <div class="no-data">
+                            <p>No pages found in <code>pages/</code> directory.</p>
+                        </div>
+                    </td>
+                </tr>
+            <?php endif ?>
+        </tbody>
+    </table>
+</div>

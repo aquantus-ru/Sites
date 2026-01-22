@@ -91,10 +91,12 @@ class MdPage extends ComponentBase
                 // Set on viewBag (specifically for plugins checking viewBag)
                 // Note: In Winter, this.page IS often the viewBag context or merges with it.
                 // But setting viewBag explicitly helps.
-                if (!isset($this->page->viewBag)) {
-                    $this->page->viewBag = [];
+                $viewBag = $this->page->viewBag ?? [];
+                if (!is_array($viewBag)) {
+                    $viewBag = (array) $viewBag;
                 }
-                $this->page->viewBag[$key] = $value;
+                $viewBag[$key] = $value;
+                $this->page->viewBag = $viewBag;
             }
 
             if (isset($config['title'])) {

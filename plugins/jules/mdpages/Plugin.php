@@ -21,4 +21,17 @@ class Plugin extends PluginBase
             'Jules\MdPages\Components\MdMenu' => 'mdMenu',
         ];
     }
+
+    public function registerNavigation()
+    {
+        return [
+            'mdpages' => [
+                'label'       => 'MD Pages',
+                'url'         => \Backend::url('jules/mdpages/manager'),
+                'icon'        => 'icon-file-text',
+                'permissions' => ['jules.mdpages.*'],
+                'order'       => 500,
+            ],
+        ];
+    }
 }
