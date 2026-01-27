@@ -13,12 +13,18 @@ code = "side-menu"
 
 [mdMenu]
 ==
+<?php
+function onStart() {
+    $this['site_host'] = \Request::getHost();
+}
+?>
+==
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ this.page.title }} | COHERENT (Delivery Style)</title>
+<title>{{ this.page.title }} | {{ site_host }}</title>
 <link href="{{ 'assets/css/msn.css'|theme }}" rel="stylesheet">
 {% styles %}
 </head>

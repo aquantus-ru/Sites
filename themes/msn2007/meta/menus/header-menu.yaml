@@ -1,14 +1,34 @@
 name: "Top Bar"
 items:
-    -
-        title: Login
-        type: url
-        url: '#'
-        code: ''
-        replace: 0
-    -
-        title: Forum
-        type: cms-page
-        reference: forum/home
-        code: forum
-        replace: 0
+    - title: Home
+      type: cms-page
+      reference: home
+      code: home
+    - title: About
+      type: cms-page
+      reference: about
+      code: about
+    - title: Products
+      type: cms-page
+      reference: products
+      code: products
+    - title: Investors
+      type: cms-page
+      reference: investor-relations
+      code: investors
+    - title: News
+      type: cms-page
+      reference: news
+      code: news
+    - title: Careers
+      type: cms-page
+      reference: careers
+      code: careers
+    - title: Contact
+      type: cms-page
+      reference: contact
+      code: contact
+    - title: Login
+      type: cms-page
+      reference: login
+      code: login
