@@ -2,232 +2,66 @@ title = "Home"
 url = "/"
 layout = "default"
 
-[vote]
-
-[guestEmbedTopic forumEmbedTopic]
-embedCode = "home"
-channelSlug = "channel-orange"
-
 [viewBag]
-show_ratings = 1
-show_comments = 1
+show_ratings = 0
+show_comments = 0
 ==
-<div class="box">
-    <button class="btn btn-secondary" style="float:right; padding: 2px 5px; font-size:10px;">COPY</button>
-    <h3>BB Code</h3>
-    <p>Do you believe in a higher power?</p>
-    <ul style="list-style: none; padding-left: 0; margin: 10px 0;">
-        <li><label><input type="checkbox"> Yes</label></li>
-        <li><label><input type="checkbox"> No</label></li>
-    </ul>
-    <pre>{{ "now"|date("l, F jS, Y, g:i A") }}</pre>
+<div class="box" style="text-align: center; padding: 40px 20px;">
+    <h1 style="color: #ff9900; margin-bottom: 10px;">Smart Living, Engineered.</h1>
+    <p style="font-size: 16px; margin-bottom: 20px;">We build the front-end interfaces and development frameworks for the next generation of smart homes.</p>
+    <a href="{{ 'products'|page }}" class="btn">Explore Solutions</a>
 </div>
 
-<div class="box">
-    <h3>Page Statistics</h3>
-    <div>This page has been viewed: <strong style="color:#ff9900;">1,024</strong> times.</div>
-</div>
-
-<div class="box">
-    <h3>Interactive Elements</h3>
-
-    <h4>Status Indicators</h4>
-    <div style="margin-bottom: 15px;">
-        <label style="font-size:11px; font-weight:bold;">Download Progress:</label>
-        <progress value="70" max="100">70%</progress>
+<div class="box" style="padding: 0; overflow: hidden;">
+    <div style="background: #222; color: #0f0; padding: 10px; font-family: monospace; white-space: nowrap; overflow: hidden;">
+        <span style="display: inline-block; animation: marquee 15s linear infinite;">
+            COHR $124.50 <span style="color: #0f0;">▲ 1.2%</span> &nbsp;&nbsp;|&nbsp;&nbsp; NASDAQ: COHR &nbsp;&nbsp;|&nbsp;&nbsp; MARKET CAP: $12B &nbsp;&nbsp;|&nbsp;&nbsp; VOL: 4.5M &nbsp;&nbsp;|&nbsp;&nbsp; LATEST: Q3 REVENUE UP 15%
+        </span>
     </div>
-    <div>
-        <label style="font-size:11px; font-weight:bold;">Disk Usage:</label>
-        <meter min="0" max="100" low="30" high="80" optimum="20" value="85">85%</meter>
-    </div>
-
-    <h4>Accordions</h4>
-    <details>
-        <summary>System Requirements</summary>
-        <div class="details-content">Windows XP or Vista, Internet Explorer 6.0+, 512MB RAM.</div>
-    </details>
-    <details>
-        <summary>Installation Instructions</summary>
-        <div class="details-content">1. Download. 2. Run as Admin. 3. Restart.</div>
-    </details>
-
-    <h4>Modal</h4>
-    <button onclick="document.getElementById('demo-dialog').showModal()" class="btn">Open Dialog</button>
-    <dialog id="demo-dialog" style="border: 2px solid #ff9900; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
-        <h4 style="margin-top:0;">System Alert</h4>
-        <p>This is a native HTML dialog element styled to match.</p>
-        <form method="dialog">
-            <button class="btn">OK</button>
-            <button class="btn btn-secondary">Cancel</button>
-        </form>
-    </dialog>
 </div>
 
-<div class="box">
-    <h3>Structural Semantics</h3>
-    <p style="font-style: italic; color:#666;">Structure visualization:</p>
-    <div style="border: 1px dashed #999; padding: 10px; background: #f9f9f9;">
-        <span style="font-size: 10px; color: #999;">&lt;ARTICLE&gt;</span>
-        <div style="background: #e5e5e5; padding: 5px; margin: 5px 0;">
-            <span style="font-size: 10px; color: #666;">&lt;HEADER&gt;</span>
-            <strong>My Blog Post Title</strong>
-        </div>
-        <div style="display:flex; gap:10px;">
-            <div style="flex:2; border:1px solid #ccc; padding:5px;">
-                <span style="font-size: 10px; color: #999;">&lt;MAIN&gt;</span>
-                <p>Content area...</p>
-            </div>
-            <div style="flex:1; border:1px solid #ccc; padding:5px;">
-                <span style="font-size: 10px; color: #999;">&lt;ASIDE&gt;</span>
-                Links...
-            </div>
-        </div>
-        <div style="background: #e5e5e5; padding: 5px; margin: 5px 0;">
-            <span style="font-size: 10px; color: #666;">&lt;FOOTER&gt;</span>
-            &copy; 2025
-        </div>
+<style>
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+</style>
+
+<div style="display: flex; gap: 20px; flex-wrap: wrap;">
+    <div class="box" style="flex: 2; min-width: 300px;">
+        <h3>Latest News</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 15px; border-bottom: 1px dashed #ccc; padding-bottom: 10px;">
+                <span style="font-size: 11px; color: #666;">Oct 24, 2023</span><br>
+                <strong><a href="{{ 'news'|page }}">Q3 Earnings Report Released</a></strong><br>
+                Record growth in our IoT interface division driven by SmartWall adoption.
+            </li>
+            <li style="margin-bottom: 15px; border-bottom: 1px dashed #ccc; padding-bottom: 10px;">
+                <span style="font-size: 11px; color: #666;">Sep 12, 2023</span><br>
+                <strong><a href="{{ 'news'|page }}">New SmartWall Panel Announced</a></strong><br>
+                The thinnest, most responsive control panel for modern homes is now available for developers.
+            </li>
+             <li style="margin-bottom: 15px; border-bottom: 1px dashed #ccc; padding-bottom: 10px;">
+                <span style="font-size: 11px; color: #666;">Aug 05, 2023</span><br>
+                <strong><a href="{{ 'news'|page }}">Partnership with EcoBuild</a></strong><br>
+                Integrating HomeOS into sustainable housing projects across Europe.
+            </li>
+        </ul>
+        <a href="{{ 'news'|page }}" class="btn btn-secondary" style="font-size: 11px;">View Newsroom</a>
+    </div>
+
+    <div class="box" style="flex: 1; min-width: 250px;">
+        <h3>Quick Links</h3>
+        <ul style="list-style: none; padding: 0; line-height: 2;">
+            <li><a href="{{ 'products'|page }}" style="text-decoration: none; color: #333;">&#9656; Products & Solutions</a></li>
+            <li><a href="{{ 'investor-relations'|page }}" style="text-decoration: none; color: #333;">&#9656; Investor Relations</a></li>
+            <li><a href="{{ 'careers'|page }}" style="text-decoration: none; color: #333;">&#9656; Careers</a></li>
+            <li><a href="{{ 'contact'|page }}" style="text-decoration: none; color: #333;">&#9656; Contact Us</a></li>
+        </ul>
     </div>
 </div>
 
 <div class="box">
-    <h3>Advanced Form Elements</h3>
-    <form>
-        <fieldset style="border: 1px solid #ccc; background:#fcfcfc; padding:15px; margin-bottom:15px;">
-            <legend style="color:#ff9900; font-weight:bold; padding:0 5px;">Pickers</legend>
-            <div style="margin-bottom:10px;">
-                <label>Theme Color</label>
-                <input type="color" value="#ff9900" style="height:30px; padding:0;">
-            </div>
-            <div style="margin-bottom:10px;">
-                <label>Volume</label>
-                <input type="range" style="vertical-align:middle;">
-            </div>
-        </fieldset>
-
-        <fieldset style="border: 1px solid #ccc; background:#fcfcfc; padding:15px;">
-            <legend style="color:#ff9900; font-weight:bold; padding:0 5px;">Scheduling</legend>
-            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
-                <input type="datetime-local">
-                <input type="month">
-                <input type="time">
-            </div>
-        </fieldset>
-
-        <div style="margin-top:15px;">
-            <input type="reset" value="Reset" class="btn btn-secondary">
-            <input type="submit" value="Save Changes" class="btn">
-        </div>
-    </form>
+    <h3>Our Vision</h3>
+    <p>To seamlessly integrate technology into the fabric of daily life, making every home intelligent, responsive, and secure. We believe the future of living is not just smart, but intuitive.</p>
 </div>
-
-<div class="box">
-    <h3>Typography</h3>
-    <p>Use <mark>&lt;mark&gt;</mark> to highlight text.</p>
-    <p>Shortcuts: <kbd>Ctrl</kbd> + <kbd>C</kbd></p>
-    <p>Formulas: H<sub>2</sub>O and E = mc<sup>2</sup></p>
-    <hr style="border:0; border-top:1px dashed #ccc; margin:15px 0;">
-    <p style="font-size: 11px; color: #666;">Published: <time>Dec 30, 2025</time></p>
-</div>
-
-<div class="box">
-    <h3>Advanced Media</h3>
-    <div style="display:flex; gap:15px; flex-wrap:wrap;">
-        <div style="flex:1;">
-            <h4>SVG</h4>
-            <svg width="60" height="60" viewBox="0 0 100 100" style="border:1px solid #ccc; background:#fff;">
-                <circle cx="50" cy="50" r="40" stroke="#333" stroke-width="4" fill="#ff9900"></circle>
-                <text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#fff" font-family="sans-serif">SVG</text>
-            </svg>
-        </div>
-        <div style="flex:1;">
-            <h4>Canvas</h4>
-            <canvas id="myCanvas" width="100" height="60" style="border:1px solid #ccc; background:#fff;"></canvas>
-            <script>
-                var c = document.getElementById("myCanvas");
-                var ctx = c.getContext("2d");
-                ctx.strokeStyle = "#ff9900";
-                ctx.lineWidth = 3;
-                ctx.moveTo(0,0); ctx.lineTo(100,60); ctx.stroke();
-                ctx.fillStyle = "#333";
-                ctx.fillText("Canvas", 10, 50);
-            </script>
-        </div>
-    </div>
-    <h4 style="margin-top:15px;">Iframe</h4>
-    <iframe src="https://www.wikipedia.org" style="width:100%; height:120px; border:1px solid #ccc;"></iframe>
-</div>
-
-<div class="box">
-    <h3>Lists</h3>
-    <div style="display:flex; gap:20px;">
-        <div style="flex:1;">
-            <h4>Unordered</h4>
-            <ul>
-                <li>Responsive</li>
-                <li>Clean Interface</li>
-            </ul>
-        </div>
-        <div style="flex:1;">
-            <h4>Ordered</h4>
-            <ol>
-                <li>Plan</li>
-                <li>Design</li>
-                <li>Code</li>
-            </ol>
-        </div>
-    </div>
-    <h4>Definition List</h4>
-    <dl style="border:1px solid #eee; padding:5px;">
-        <dt>HTML</dt><dd>HyperText Markup Language</dd>
-        <dt>CSS</dt><dd>Cascading Style Sheets</dd>
-    </dl>
-</div>
-
-<div class="box">
-    <h3>User Data Table</h3>
-    <div style="overflow-x:auto;">
-        <table class="grid-classic">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Title</th>
-                    <th>Status</th>
-                    <th>Role</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Jane Doe</td>
-                    <td>Software Engineer</td>
-                    <td>Active</td>
-                    <td>Member</td>
-                </tr>
-                <tr>
-                    <td>John Smith</td>
-                    <td>Lead Developer</td>
-                    <td>Pending</td>
-                    <td>Admin</td>
-                </tr>
-                <tr>
-                    <td>Sarah Connor</td>
-                    <td>UI/UX Designer</td>
-                    <td>Active</td>
-                    <td>Member</td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="4">Total Users: 3</td>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
-</div>
-
-{% if viewBag.show_comments %}
-<div class="box">
-    <h3>Comments</h3>
-    {% component 'forumEmbedTopic' %}
-    <p style="font-size:11px; margin-top:5px;"><a href="{{ 'forum'|page }}">Back to Forum</a></p>
-</div>
-{% endif %}

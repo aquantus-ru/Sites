@@ -1,0 +1,66 @@
+title = "Products & Solutions"
+url = "/products"
+layout = "default"
+==
+<div class="box">
+    <h2>Our Solutions</h2>
+    <p>We provide the full stack for smart home experiences, from the embedded OS to the user-facing mobile app. Our unified ecosystem ensures compatibility and performance.</p>
+</div>
+
+<div class="box">
+    <h3 style="border-bottom: 2px solid #ff9900; padding-bottom: 5px;">HomeOS Kernel</h3>
+    <p>The lightweight, real-time operating system designed specifically for home automation hubs.</p>
+    <ul>
+        <li><strong>Ultra-low latency:</strong> < 5ms response time for light switches and sensors.</li>
+        <li><strong>Local processing:</strong> Privacy-first architecture that works without the cloud.</li>
+        <li><strong>Universal Compatibility:</strong> Native support for Matter, Zigbee, and Z-Wave.</li>
+    </ul>
+</div>
+
+<div class="box">
+    <h3 style="border-bottom: 2px solid #ff9900; padding-bottom: 5px;">SmartWall Interface</h3>
+    <p>A touch-responsive wall panel that blends into any interior, replacing traditional switch banks.</p>
+    <div style="border:1px solid #ccc; padding:20px; text-align:center; background:#f9f9f9; margin: 15px 0;">
+        <svg width="200" height="120" viewBox="0 0 200 120" style="background:#fff; border:1px solid #ddd;">
+            <!-- Frame -->
+            <rect x="10" y="10" width="180" height="100" rx="5" fill="#f0f0f0" stroke="#999" />
+            <!-- Screen -->
+            <rect x="20" y="20" width="160" height="80" fill="#333" />
+            <!-- UI Elements -->
+            <rect x="30" y="30" width="40" height="40" rx="2" fill="#ff9900" />
+            <text x="50" y="55" text-anchor="middle" fill="white" font-size="10" font-family="sans-serif">Light</text>
+
+            <rect x="80" y="30" width="40" height="40" rx="2" fill="#444" />
+             <text x="100" y="55" text-anchor="middle" fill="white" font-size="10" font-family="sans-serif">Temp</text>
+
+            <rect x="130" y="30" width="40" height="40" rx="2" fill="#444" />
+             <text x="150" y="55" text-anchor="middle" fill="white" font-size="10" font-family="sans-serif">Lock</text>
+
+             <!-- Status Bar -->
+             <rect x="20" y="85" width="160" height="15" fill="#222" />
+             <text x="170" y="96" text-anchor="end" fill="#0f0" font-size="8" font-family="monospace">SYSTEM OK</text>
+        </svg>
+        <p style="font-size:10px; color:#666; margin-top:5px;">Fig 1. SmartWall Dashboard Layout</p>
+    </div>
+</div>
+
+<div class="box">
+    <h3 style="border-bottom: 2px solid #ff9900; padding-bottom: 5px;">Developer SDK</h3>
+    <p>Empowering third-party developers to extend the Coherent ecosystem with custom integrations.</p>
+    <pre style="background:#222; color:#0f0; padding:15px; font-size:12px; border-radius: 4px; overflow-x: auto;">
+import { SmartHome } from '@coherent/sdk';
+
+// Initialize the local hub connection
+const hub = await SmartHome.connect('local');
+
+// Get the living room zone
+const livingRoom = hub.getZone('living-room');
+
+// Set scene to 'Movie Night'
+await livingRoom.activateScene('movie-night', {
+    transitionTime: 2000 // ms
+});
+
+console.log('Scene activated');
+    </pre>
+</div>
